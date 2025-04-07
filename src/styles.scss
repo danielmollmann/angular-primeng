@@ -1,0 +1,98 @@
+/* ============================= */
+/* 🎨 Importações globais       */
+/* ============================= */
+@use "tailwindcss"; // Habilita classes utilitárias do Tailwind
+@use "primeicons/primeicons.css"; // Ícones para os menus, botões, etc.
+
+/* ======================== */
+/* 🌞 Tema Claro (padrão)   */
+/* ======================== */
+.light-theme,
+:root {
+  --primary-color: #ffcc00; // Cor primária da marca (amarelo)
+  --primary-color-text: #000000; // Texto sobre fundo primário
+  --background-color: #ffffff; // Cor de fundo clara
+  --text-color: #000000; // Cor do texto padrão
+  --hover-color: #ffcc00; // Cor ao passar o mouse
+  --menu-padding-x: 40px; // Padding horizontal do menu
+  --font-family: 'Segoe UI', Roboto, sans-serif; // Fonte padrão
+
+  /* 🔠 Tamanhos de fonte */
+  --font-size-menubar: 0.8rem; // Tamanho reduzido dos itens do Menubar
+  --font-size-button: 0.9rem; // Tamanho da fonte dos botões
+  --font-size-badge: 0.75rem; // Tamanho da fonte dos badges
+}
+
+/* ======================== */
+/* 🌚 Tema Escuro           */
+/* ======================== */
+.dark-theme {
+  --primary-color: #ffcc00; // Mantém a cor primária
+  --primary-color-text: #ffffff; // Texto sobre fundo primário no escuro
+  --background-color: #000000; // Fundo escuro
+  --text-color: #ffffff; // Texto branco
+  --hover-color: #ffcc00; // Cor de hover
+
+  /* 🔠 Tamanhos de fonte */
+  --font-size-menubar: 0.8rem; // Tamanho reduzido dos itens do Menubar
+  --font-size-button: 0.9rem; // Tamanho da fonte dos botões
+  --font-size-badge: 0.75rem; // Tamanho da fonte dos badges
+}
+
+/* ======================== */
+/* 🎨 Estilo Base do Body   */
+/* ======================== */
+body {
+  background-color: var(--background-color); // Aplica cor de fundo dinâmica
+  color: var(--text-color); // Aplica cor do texto dinâmica
+  font-family: var(--font-family); // Usa a fonte definida no tema
+  margin: 0;
+  padding: 0;
+  transition: background-color 0.3s ease, color 0.3s ease; // Transição suave entre temas
+}
+
+/* =================================== */
+/* ✨ Transições suaves nos elementos */
+/* =================================== */
+.p-menubar,
+.p-menubar-item-link,
+.p-button,
+.p-badge {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* ===================================== */
+/* 🔘 Tamanho de Fonte dos Botões        */
+/* ===================================== */
+::ng-deep .p-button {
+  font-size: var(--font-size-button); // Usa variável global para os botões
+}
+
+/* ===================================== */
+/* 🔴 Tamanho de Fonte dos Badges        */
+/* ===================================== */
+::ng-deep .p-badge {
+  font-size: var(--font-size-badge); // Define o tamanho dos badges
+}
+
+/* ================================================ */
+/* 🧠 Aplica tamanho de fonte direto no texto do menu */
+/* ================================================ */
+.p-menubar .p-menubar-item-link span {
+  font-size: var(--font-size-menubar) !important; // Agora atinge exatamente o span com o texto
+}
+
+/* ======================================================================= */
+/* 🎯 Estilo visual ajustado para reduzir espaço até a linha inferior      */
+/* ======================================================================= */
+.p-menubar-submenu .p-menubar-item-link {
+  border-radius: 8px;                 // 🔵 Bordas arredondadas
+  line-height: 0.8;                  // 🔧 Controla a altura da linha do texto
+  border-bottom: 1px solid var(--primary-color); // Linha divisória
+  background-color: rgba(128, 204, 0, 0.08); // Fundo amarelo suave (usar cor primária com transparência)
+  transition: background-color 0.3s ease;
+}
+
+
+
+

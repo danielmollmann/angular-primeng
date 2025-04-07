@@ -1,0 +1,49 @@
+<!-- Componente de menu PrimeNG com modelo de itens dinâmicos -->
+<p-menubar [model]="items">
+
+  <!-- Logotipo SVG no início -->
+  <ng-template #start>
+    <div class="flex items-center pl-4">
+      <div *ngIf="isDarkTheme" class="logo-container">
+        <svg width="210" height="105" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+          <rect fill="black" height="200" width="400" x="0" y="0" />
+          <text fill="white" font-family="Arial" font-size="40" text-anchor="middle" x="200.0" y="90">Dynamis</text>
+          <text fill="white" font-family="Arial" font-size="28" text-anchor="middle" x="200.0" y="140">Bank</text>
+        </svg>
+      </div>
+      <div *ngIf="!isDarkTheme" class="logo-container">
+        <svg width="210" height="105" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+          <rect fill="white" height="200" width="400" x="0" y="0" />
+          <text fill="black" font-family="Arial" font-size="40" text-anchor="middle" x="200.0" y="90">Dynamis</text>
+          <text fill="black" font-family="Arial" font-size="28" text-anchor="middle" x="200.0" y="140">Bank</text>
+        </svg>
+      </div>
+      <svg width="70" height="70" viewBox="0 0 66 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="..." fill="var(--primary-color)" />
+      </svg>
+    </div>
+  </ng-template>
+
+  <!-- Template dos itens principais -->
+  <ng-template #item let-item let-root="root">
+    <a pRipple class="flex items-center p-menubar-item-link">
+      <i *ngIf="item.icon" [ngClass]="item.icon"></i>
+      <span *ngIf="item.label">{{ item.label }}</span>
+      <p-badge
+        *ngIf="item.badge"
+        [ngClass]="{ 'ml-auto': !root, 'ml-2': root }"
+        [value]="item.badge">
+      </p-badge>
+      <span
+        *ngIf="item.shortcut"
+        class="ml-auto border border-surface rounded bg-emphasis text-muted px-2 py-1 text-xs">
+        {{ item.shortcut }}
+      </span>
+      <i
+        *ngIf="item.items"
+        [ngClass]="['ml-auto pi', root ? 'pi-angle-down' : 'pi-angle-right']">
+      </i>
+    </a>
+  </ng-template>
+
+</p-menubar>

@@ -1,0 +1,78 @@
+.p-menubar { // Estiliza o componente de barra de menu principal (PrimeNG Menubar)
+  background-color: var(--background-color) !important; // Define a cor de fundo usando variável CSS
+  font-family: var(--font-family); // Define a fonte do texto com variável CSS
+  padding: 0 2rem !important; // Aplica espaçamento horizontal nas bordas do menubar
+
+  .p-menubar-root-list > li { // Alvo direto dos itens principais do menu
+    margin-right: 1.5rem !important; // Define espaçamento entre os itens do menu
+  }
+
+  .p-menubar-item { // Define estilo base dos itens do menu
+    display: flex; // Alinha os itens usando flexbox
+    align-items: center; // Centraliza verticalmente os itens do menu
+  }
+  
+  .p-menubar-item-link { // Estiliza os links clicáveis do menu
+    padding: 1rem 0 !important; // Aplica espaçamento vertical nos links
+    color: var(--text-color) !important; // Define a cor do texto dos links
+    font-weight: 500; // Define o peso da fonte para dar mais destaque
+    transition: color 0.3s ease; // Suaviza a transição de cor ao passar o mouse
+
+    &:hover { // Estado ao passar o mouse sobre os links
+      color: var(--hover-color) !important; // Muda a cor do texto no hover
+    }
+  }
+
+  .p-menubar-start { // Estiliza a seção esquerda (início) do menu
+    margin-left: -2rem; // Ajuste para mover o logo mais para a esquerda
+    margin-right: -1rem; // Espaçamento à direita da seção inicial
+    display: flex; // Ativa o layout flexível
+    align-items: center; // Alinha verticalmente os elementos ao centro
+  }
+
+  /* ======================================================= */
+  /* 🎯 Ajuste de espaçamento entre ícones e texto no menu */
+  /* ======================================================= */
+  .p-menubar-item-link i {
+    margin-right: 0.4rem; /* Espaçamento de 8px */
+  }
+
+  /* Estilo específico para o ícone de tema (olho) */
+  .p-menubar-item-link .pi-eye,
+  .p-menubar-item-link .pi-eye-slash {
+    margin-right: 0.5rem;
+    font-size: 1.4rem; /* Tamanho um pouco maior */
+  }
+
+  /* Estilos para o container do logo */
+  .logo-container {
+    display: flex;
+    align-items: center;
+    margin-right: 1rem;
+    transition: all 0.3s ease;
+
+    img {
+      transition: opacity 0.3s ease;
+    }
+  }
+
+  /* Estilos para o container do logo */
+  .logo-container {
+    display: flex;
+    align-items: center;
+    margin-right: 1rem;
+    transition: all 0.3s ease;
+
+    svg {
+      transition: all 0.3s ease;
+      
+      rect {
+        transition: fill 0.3s ease;
+      }
+      
+      text {
+        transition: fill 0.3s ease;
+      }
+    }
+  }
+}

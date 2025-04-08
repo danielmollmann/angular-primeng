@@ -1,16 +1,21 @@
 <!-- 🖼️ Camada de fundo com imagem -->
 <div class="bg-image-wrapper">
-    <img src="assets/imagens/investidor_02.png" class="bg-image" alt="Fundo" />
+  <img src="assets/imagens/investidor_02.png" class="bg-image" alt="Fundo" />
+</div>
+
+<!-- 🌐 Estrutura da aplicação -->
+<div class="app-container">
+  <!-- 📌 Barra de navegação fixa no topo -->
+  <app-navbar class="navbar-fixed"></app-navbar>
+
+  <!-- 📦 Conteúdo dinâmico -->
+  <div class="content-wrapper">
+    <router-outlet></router-outlet>
   </div>
-  
-  <!-- 🌐 Estrutura da aplicação -->
-  <div class="app-container">
-    <!-- 📌 Barra de navegação fixa no topo -->
-    <app-navbar class="navbar-fixed"></app-navbar>
-  
-    <!-- 📦 Conteúdo dinâmico -->
-    <div class="content-wrapper">
-      <router-outlet></router-outlet>
-    </div>
+
+  <!-- 💬 Citação visível sempre, fora do outlet -->
+  <div class="trader-quote">
+    “Enquanto uns entram em pânico, eu encho o copo. Crises criam oportunidades.”<br />
+    <span>— Fábio Almeida</span>
   </div>
-  
+</div>

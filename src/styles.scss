@@ -105,31 +105,53 @@ body.dark-theme {
 }
 
 /* =============================================== */
-/* 🖼️ Camada de imagem de fundo com controle total */
+/* 🖼️ Camada de imagem de fundo com deslocamento   */
 /* =============================================== */
 .bg-image-wrapper {
-  position: fixed;            // 🔒 Fixa atrás do app
+  position: fixed;              // ⛓️ Fixa atrás de todo o conteúdo
   top: 0;
   left: 0;
-  width: 100vw;               // ⬅️➡️ Largura total da viewport
-  height: 100vh;              // ⬆️⬇️ Altura total da viewport
-  z-index: -1;                // 🔽 Atrás de todos os elementos visuais
-  overflow: hidden;           // ✂️ Esconde partes fora da tela
-  pointer-events: none;       // 🖱️ Permite clique nos elementos acima
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
 }
 
 .bg-image {
-  width: auto;                // 📐 Largura automática proporcional
-  height: 100vh;              // 🔽 Reduz altura para não ser cortado
-  max-width: 100vw;           // Limita para não passar da largura da tela
-  object-fit: contain;        // ✅ Mantém proporção sem corte
-  object-position: top center; // 🎯 Centraliza no topo
+  position: relative;           // 🎯 Essencial para aceitar margin!
   display: block;
-  margin: 0 auto;             // 📏 Centraliza horizontalmente
-  filter: brightness(0.92);   // 💡 Suaviza contraste da imagem
-  transition: all 0.3s ease;  // 🌀 Transições suaves se necessário
+  margin: 160px auto 0 auto;    // ✅ Desce a imagem: ajuste aqui a distância
+  width: auto;
+  max-width: 100vw;
+  max-height: 85vh;
+  object-fit: contain;
+  object-position: top center;
+  filter: brightness(0.9);
+  transition: all 0.3s ease;
 }
 
 body.dark-theme .bg-image {
-  filter: brightness(0.75);   // 🌙 Ajuste para modo escuro
+  filter: brightness(0.75);
+}
+
+/* ========================================= */
+/* 💡 Zera cor de fundo do conteúdo interno  */
+/* ========================================= */
+.content-wrapper {
+  background-color: transparent !important;  // ❌ Remove fundo branco
+  backdrop-filter: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* Se algum componente filho estiver forçando branco */
+:host ::ng-deep .p-component {
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+
+/* Garante fundo preto como fallback */
+body {
+  background-color: #000 !important;
 }

@@ -21,4 +21,4 @@ Este repositório contém o projeto *Angular Dynamis Bank*, desenvolvido em Angu
 ```bash
 cd angular-primeng
 npm install
-ng serve
+ng serve -o

@@ -11,7 +11,7 @@
     display: flex; // Alinha os itens usando flexbox
     align-items: center; // Centraliza verticalmente os itens do menu
   }
-  
+
   .p-menubar-item-link { // Estiliza os links clicáveis do menu
     padding: 1rem 0 !important; // Aplica espaçamento vertical nos links
     color: var(--text-color) !important; // Define a cor do texto dos links
@@ -34,44 +34,101 @@
   /* 🎯 Ajuste de espaçamento entre ícones e texto no menu */
   /* ======================================================= */
   .p-menubar-item-link i {
-    margin-right: 0.4rem; /* Espaçamento de 8px */
+    margin-right: 0.4rem; /* Espaçamento de 8px entre ícone e texto */
   }
 
   /* Estilo específico para o ícone de tema (olho) */
   .p-menubar-item-link .pi-eye,
   .p-menubar-item-link .pi-eye-slash {
-    margin-right: 0.5rem;
-    font-size: 1.4rem; /* Tamanho um pouco maior */
+    margin-right: 0.5rem; // Ajuste do espaçamento para esses ícones específicos
+    font-size: 1.4rem; /* Aumenta o tamanho visual dos ícones */
   }
 
   /* Estilos para o container do logo */
   .logo-container {
-    display: flex;
-    align-items: center;
-    margin-right: 1rem;
-    transition: all 0.3s ease;
+    display: flex; // Permite layout horizontal dos elementos
+    align-items: center; // Centraliza verticalmente
+    margin-right: 1rem; // Espaço entre logo e itens
+    transition: all 0.3s ease; // Animação suave para transformações futuras
 
     img {
-      transition: opacity 0.3s ease;
+      transition: opacity 0.3s ease; // Animação suave ao alterar opacidade
+    }
+
+    svg {
+      transition: all 0.3s ease; // Suaviza qualquer transformação do SVG
+
+      rect {
+        transition: fill 0.3s ease; // Transição para troca de cor do fundo do SVG
+      }
+
+      text {
+        transition: fill 0.3s ease; // Transição para a cor do texto do SVG
+      }
     }
   }
 
-  /* Estilos para o container do logo */
-  .logo-container {
-    display: flex;
-    align-items: center;
-    margin-right: 1rem;
-    transition: all 0.3s ease;
+  /* ======================================================= */
+  /* 🧑 Estilo da imagem de perfil e menu suspenso lateral   */
+  /* ======================================================= */
 
-    svg {
-      transition: all 0.3s ease;
-      
-      rect {
-        transition: fill 0.3s ease;
-      }
-      
-      text {
-        transition: fill 0.3s ease;
+  .profile-container {
+    display: flex; // Layout horizontal (pode comportar ícone ou botão junto)
+    align-items: center; // Alinha a imagem ao centro verticalmente
+
+    .profile-pic {
+      width: 65px; // Aumentado para melhor destaque
+      height: 65px;
+      border-radius: 50%; // Deixa a imagem perfeitamente redonda
+      border: 2px solid #fff; // Borda branca ao redor da imagem
+      object-fit: cover; // Garante que a imagem ocupe todo o espaço sem distorcer
+      transition: transform 0.2s ease; // Efeito suave ao aplicar escala
+    }
+
+    .profile-pic:hover {
+      transform: scale(1.20); // Efeito "zoom leve" ao passar o mouse
+    }
+  }
+
+  .profile-dropdown {
+    position: absolute; // Posiciona flutuante em relação ao container pai
+    top: 130px; // Distância vertical da imagem até o topo do dropdown
+    right: 0; // Alinha à direita da tela ou container pai
+    background-color: var(--dropdown-bg); // Fundo dinâmico conforme tema
+    color: var(--dropdown-text); // Cor de texto conforme tema
+    border: 1px solid var(--dropdown-border); // Borda temática
+    border-radius: 8px; // Cantos arredondados
+    min-width: 220px; // Largura mínima do menu
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2); // Sombra elegante
+    z-index: 999; // Sobrepõe demais camadas
+    padding-bottom: 8px; // Espaçamento inferior
+
+    .profile-name {
+      font-weight: bold; // Destaque do nome
+      padding: 12px 16px 4px 16px; // Espaçamento interno
+      font-size: 0.95rem; // Tamanho do texto
+    }
+
+    .profile-code {
+      font-size: 0.85rem; // Menor que o nome
+      color: #aaa; // Cor discreta
+      padding: 0 16px 12px 16px; // Espaço abaixo do nome
+    }
+
+    .profile-menu {
+      list-style: none; // Remove bolinhas
+      padding: 0;
+      margin: 0;
+
+      li {
+        padding: 10px 16px; // Espaçamento interno dos itens
+        cursor: pointer; // Cursor em formato de clique
+        transition: background-color 0.2s ease, color 0.2s ease; // Transições suaves
+
+        &:hover {
+          background-color: var(--dropdown-hover-bg); // Fundo no hover conforme tema
+          color: var(--highlight-color); // 🔥 Sempre amarelo no hover
+        }
       }
     }
   }

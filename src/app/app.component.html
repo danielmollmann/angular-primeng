@@ -1,2 +1,16 @@
-<app-navbar></app-navbar>
-<router-outlet />
+<!-- 🖼️ Camada de fundo com imagem -->
+<div class="bg-image-wrapper">
+    <img src="assets/imagens/investidor_02.png" class="bg-image" alt="Fundo" />
+  </div>
+  
+  <!-- 🌐 Estrutura da aplicação -->
+  <div class="app-container">
+    <!-- 📌 Barra de navegação fixa no topo -->
+    <app-navbar class="navbar-fixed"></app-navbar>
+  
+    <!-- 📦 Conteúdo dinâmico -->
+    <div class="content-wrapper">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+  

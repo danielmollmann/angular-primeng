@@ -1,0 +1,14 @@
+/* ============================================== */
+/* 🌄 Imagem de fundo pura no container principal */
+/* ============================================== */
+:host ::ng-deep .app-container {
+    background-image: url("/assets/imagens/investidor_02.png"); // ✅ Imagem de fundo vinda de assets
+    background-size: 50%;                 // ✅ Reduz proporcionalmente a imagem (sem corte)
+    background-position: top center;      // 🎯 Alinha no topo e centraliza horizontalmente
+    background-repeat: no-repeat;         // 🚫 Não repete a imagem
+    background-attachment: scroll;        // 🔄 A imagem rola junto com o conteúdo
+    min-height: 100vh;                    // ↕️ Altura mínima igual à viewport
+    width: 100%;                          // ↔️ Ocupa toda a largura
+    background-color: #000;               // 🖤 Fundo preto de segurança nas laterais
+  }
+

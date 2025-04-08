@@ -1,49 +1,73 @@
 <!-- Componente de menu PrimeNG com modelo de itens dinâmicos -->
-<p-menubar [model]="items">
+<p-menubar [model]="items" start="start" end="end"> <!-- Define o modelo do menu e os templates de início e fim -->
 
   <!-- Logotipo SVG no início -->
-  <ng-template #start>
-    <div class="flex items-center pl-4">
-      <div *ngIf="isDarkTheme" class="logo-container">
+  <ng-template #start> <!-- Template de início para o logotipo -->
+    <div class="flex items-center pl-4"> <!-- Container do logotipo com padding à esquerda -->
+
+      <div *ngIf="isDarkTheme" class="logo-container"> <!-- Logotipo modo escuro -->
         <svg width="210" height="105" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
           <rect fill="black" height="200" width="400" x="0" y="0" />
           <text fill="white" font-family="Arial" font-size="40" text-anchor="middle" x="200.0" y="90">Dynamis</text>
           <text fill="white" font-family="Arial" font-size="28" text-anchor="middle" x="200.0" y="140">Bank</text>
         </svg>
       </div>
-      <div *ngIf="!isDarkTheme" class="logo-container">
+
+      <div *ngIf="!isDarkTheme" class="logo-container"> <!-- Logotipo modo claro -->
         <svg width="210" height="105" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
           <rect fill="white" height="200" width="400" x="0" y="0" />
           <text fill="black" font-family="Arial" font-size="40" text-anchor="middle" x="200.0" y="90">Dynamis</text>
           <text fill="black" font-family="Arial" font-size="28" text-anchor="middle" x="200.0" y="140">Bank</text>
         </svg>
       </div>
-      <svg width="70" height="70" viewBox="0 0 66 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+      <svg width="70" height="70" viewBox="0 0 66 70" fill="none" xmlns="http://www.w3.org/2000/svg"> <!-- Ícone extra do logo -->
         <path d="..." fill="var(--primary-color)" />
       </svg>
     </div>
   </ng-template>
 
   <!-- Template dos itens principais -->
-  <ng-template #item let-item let-root="root">
-    <a pRipple class="flex items-center p-menubar-item-link">
-      <i *ngIf="item.icon" [ngClass]="item.icon"></i>
-      <span *ngIf="item.label">{{ item.label }}</span>
+  <ng-template #item let-item let-root="root"> <!-- Template de cada item do menu -->
+    <a pRipple class="flex items-center p-menubar-item-link"> <!-- Link com efeito ripple -->
+      <i *ngIf="item.icon" [ngClass]="item.icon"></i> <!-- Ícone do item, se houver -->
+      <span *ngIf="item.label">{{ item.label }}</span> <!-- Rótulo do item -->
       <p-badge
         *ngIf="item.badge"
         [ngClass]="{ 'ml-auto': !root, 'ml-2': root }"
         [value]="item.badge">
-      </p-badge>
+      </p-badge> <!-- Badge, se existir -->
+
       <span
         *ngIf="item.shortcut"
         class="ml-auto border border-surface rounded bg-emphasis text-muted px-2 py-1 text-xs">
         {{ item.shortcut }}
-      </span>
+      </span> <!-- Atalho do item, se houver -->
+
       <i
         *ngIf="item.items"
         [ngClass]="['ml-auto pi', root ? 'pi-angle-down' : 'pi-angle-right']">
-      </i>
+      </i> <!-- Ícone de submenu, se houver filhos -->
     </a>
+  </ng-template>
+
+  <!-- Imagem de perfil e menu suspenso -->
+  <ng-template #end> <!-- Template final para botão de usuário -->
+    <div class="flex items-center pr-4 relative"> <!-- Alinhamento à direita com posição relativa -->
+      <div class="profile-container" (click)="toggleProfileMenu()" style="cursor: pointer;"> <!-- Contêiner clicável -->
+        <img src="assets/imagens/daniel2.jpg" class="profile-pic" alt="Perfil" /> <!-- Foto do perfil -->
+      </div>
+
+      <div *ngIf="showProfileMenu" class="profile-dropdown"> <!-- Dropdown exibido ao clicar -->
+        <div class="profile-name">Daniel Möllmann</div> <!-- Nome do usuário -->
+        <div class="profile-code">Código: 5296063</div> <!-- Código do usuário -->
+        <ul class="profile-menu"> <!-- Lista de opções do submenu -->
+          <li (click)="onOptionClick('dados')">Dados cadastrais</li> <!-- Opção: Dados cadastrais -->
+          <li (click)="onOptionClick('perfil')">Perfil de investimentos</li> <!-- Opção: Perfil de investimentos -->
+          <li (click)="onOptionClick('sair')">Sair do Portal</li> <!-- Opção: Logout -->
+        </ul>
+      </div>
+    </div>
   </ng-template>
 
 </p-menubar>
